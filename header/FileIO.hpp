@@ -24,4 +24,9 @@ class File
     uint8_t get_byte(std::size_t position);
 };
 
+bool save_byte(std::vector<uint8_t> bytes, std::string filename);
+bool save_byte32(std::vector<uint32_t> bytes, std::string filename);
+std::vector<uint8_t> load_byte(std::string filename);
+std::vector<uint32_t> load_byte32(std::string filename);
+
 #endif

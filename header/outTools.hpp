@@ -9,6 +9,7 @@ namespace writer
   void debug(std::string process, std::string txt);
   void error(std::string process, std::string txt);
   void warn(std::string process, std::string txt);
+  void color256(std::string txt, short col256, bool new_line= true);
 }
 
 #endif
