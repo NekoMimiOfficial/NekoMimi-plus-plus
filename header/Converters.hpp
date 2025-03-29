@@ -1,12 +1,13 @@
 #ifndef __NM_CPPM_Converters
 #define __NM_CPPM_Converters
 
+#include <cstddef>
+#include <cstdint>
 #include <string>
 
 namespace convert
 {
-  template <typename T>
-  std::string hex(T i);
+  std::string hex(size_t i);
 };
 
 #endif
