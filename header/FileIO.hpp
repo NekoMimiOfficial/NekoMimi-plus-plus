@@ -13,6 +13,7 @@ class File
     std::string ext;
     std::vector<uint8_t> data;
     std::size_t size;
+    bool good;
 
   public:
     File (std::string file);
@@ -22,6 +23,7 @@ class File
     std::size_t get_size();
     std::vector<uint8_t> get_vector();
     uint8_t get_byte(std::size_t position);
+    bool safe();
 };
 
 bool save_byte(std::vector<uint8_t> bytes, std::string filename);

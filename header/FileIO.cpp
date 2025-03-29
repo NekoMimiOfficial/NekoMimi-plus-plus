@@ -3,13 +3,44 @@
 #include <cstddef>
 #include <cstdint>
 #include <filesystem>
+#include <iostream>
 #include <string>
 #include <ios>
 #include <fstream>
 #include <vector>
 
-File::File (std::string)
-{}
+File::File (std::string file)
+{
+  good= true;
+
+  std::string fnARR= "";
+  std::string extARR= "";
+
+  short dotLocation= file.rfind('.', file.npos);
+  for (int i= 0; i < dotLocation; i++) {fnARR += file[i];}
+  for (int i= dotLocation+1; i < file.length(); i++)
+  {extARR += file[i];}
+
+  filename= fnARR;
+  ext= extARR;
+
+  std::ifstream buffer;
+  buffer.open(file.c_str(), std::ios::in | std::ios::binary | std::ios::ate);
+  size_t sizeBUFF= buffer.tellg();
+
+  if (sizeBUFF == 0)
+  {std::cout << "[Warning] [File] reading file " << file << " ended with 0 bytes read, possible read issue\n";}
+  size= sizeBUFF;
+
+  data.resize(sizeBUFF);
+  buffer.seekg(0, std::ios::beg);
+  buffer.read(reinterpret_cast<char *>(data.data()), sizeBUFF);
+
+  if (data.size() != sizeBUFF)
+  {std::cout << "[Error] [File] size mismatch, data vector does not match file bytes\n"; good= false;}
+
+  buffer.close();
+}
 
 std::string File::get_filename()
 {return filename;}
@@ -25,6 +56,9 @@ std::vector<uint8_t> File::get_vector()
 
 uint8_t File::get_byte(std::size_t position)
 {return data[position];}
+
+bool File::safe()
+{return good;}
 
 bool save_byte(std::vector<uint8_t> bytes, std::string filename)
 {
