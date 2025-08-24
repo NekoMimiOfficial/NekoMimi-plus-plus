@@ -1,6 +1,7 @@
-Package: libnmpp
+Package: libnmpp-dev
 Version: 1.0.6
 Architecture: amd64
+Installed-Size: 40
 Maintainer: NekoMimiOfficial <nekomimi@tilde.team>
 Section: devel
 Priority: optional
