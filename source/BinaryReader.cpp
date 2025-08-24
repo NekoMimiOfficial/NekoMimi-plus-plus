@@ -1,5 +1,5 @@
-#include "BinaryReader.hpp"
-#include "outTools.hpp"
+#include "../header/BinaryReader.hpp"
+#include "../header/outTools.hpp"
 #include <cstddef>
 #include <cstdint>
 #include <vector>

@@ -29,4 +29,7 @@
 - warn
 - debug
 - error
+
+[Utils]
+- len
 ```

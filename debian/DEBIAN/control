@@ -1,0 +1,8 @@
+Package: libnmpp
+Version: 1.0.6
+Architecture: amd64
+Maintainer: NekoMimiOfficial <nekomimi@tilde.team>
+Section: devel
+Priority: optional
+Homepage: http://nekomimi.tilde.team
+Description: A C++ library that exposes a lot of helpful features to aid development
