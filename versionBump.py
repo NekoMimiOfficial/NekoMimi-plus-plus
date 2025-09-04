@@ -2,7 +2,7 @@
 
 import sys
 newVer= sys.argv[1]
-oldVer= "1.0.6"
+oldVer= "1.0.7"
 
 if not oldVer.count(".") == 2 and not len(oldVer) == 5:
     exit(1)

@@ -24,3 +24,9 @@ std::string convert::hex(size_t i)
 
   return prefix + s;
 }
+
+std::string convert::uchar2string(uint8_t *uchar)
+{
+  std::string res= (char*)uchar;
+  return res;
+}

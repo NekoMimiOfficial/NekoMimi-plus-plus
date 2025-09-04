@@ -14,6 +14,9 @@ byteReader::byteReader(std::vector<uint8_t> vec)
   {writer::warn("byteReader", "vector size mismatch, data may be corrupted");}
 }
 
+byteReader::~byteReader()
+{data.clear();}
+
 bool byteReader::i(std::size_t x)
 {
   for (std::size_t i= 0; i < x; i++)

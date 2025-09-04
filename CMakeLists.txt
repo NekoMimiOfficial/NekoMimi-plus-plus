@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.0)
-project(NekoMimi-plus-plus VERSION 1.0.6)
+project(NekoMimi-plus-plus VERSION 1.0.7)
 
 set (CMAKE_CXX_STANDARD_REQUIRED 20)
 set (CMAKE_CXX_STANDARD 20)
