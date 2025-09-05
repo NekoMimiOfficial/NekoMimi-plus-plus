@@ -13,6 +13,7 @@ mkdir -p ./build/libnmpp_${VERSION}_amd64/usr/lib/x86_64-linux-gnu/
 
 rm -rf ./build/libnmpp_${VERSION}_amd64/usr/include/NMPP/*
 rm -rf ./build/libnmpp_${VERSION}_amd64/usr/lib/x86_64-linux-gnu/*
+rm -rf ./objects/*
 
 cp -r ./debian/DEBIAN/* ./build/libnmpp_${VERSION}_amd64/DEBIAN/
 cmake -L .
