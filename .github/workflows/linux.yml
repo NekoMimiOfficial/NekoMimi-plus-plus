@@ -1,7 +1,9 @@
+name: "Build on CMAKE for ubuntu 22.04 lts (also supports ubuntu 24.04 lts and higher)"
+
 on:
-push:
-branches:
-  - master
+  push:
+    branches:
+      - master
 
 jobs:
   build:
