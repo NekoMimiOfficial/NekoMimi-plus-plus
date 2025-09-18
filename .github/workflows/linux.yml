@@ -2,35 +2,40 @@ name: "Build on CMAKE for ubuntu 22.04 lts (also supports ubuntu 24.04 lts and h
 
 on:
   push:
-    branches:
-      - master
+    branches: [ "master" ]
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ${{ matrix.os }}
 
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+    strategy:
+      fail-fast: false
 
-  - name: Set up Python 3.12
-    uses: actions/setup-python@v5
-    with:
-      python-version: '3.12'
+      matrix:
+        os: [ubuntu-24.04, ubuntu-24.04-arm]
 
-  - name: Install C++ dependencies
-    run: |
-      sudo apt-get update
-      sudo apt-get install -y cmake g++ build-essential
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  - name: Run build script
-    run: |
-      chmod +x build.sh
-      ./build.sh
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
-  - name: Upload artifacts
-    uses: actions/upload-artifact@v4
-    with:
-      name: build-artifacts
-      path: build/
+      - name: Install C++ dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ build-essential
+
+      - name: Run build script
+        run: |
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: build/
 
