@@ -34,3 +34,8 @@ set_target_properties(NMPP PROPERTIES
   PUBLIC_HEADER ./header/Converters.hpp
   PUBLIC_HEADER ./header/BinaryReader.hpp
 )
+
+install(TARGETS NMPP
+  LIBRARY DESTINATION lib
+  PUBLIC_HEADER DESTINATION include/${PROJECT_NAME}
+)
