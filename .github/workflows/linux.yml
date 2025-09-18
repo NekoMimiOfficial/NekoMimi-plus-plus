@@ -36,6 +36,6 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-artifacts
+          name: build-nightly-${{ matrix.os }}
           path: build/
 
